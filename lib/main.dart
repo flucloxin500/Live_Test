@@ -1,12 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: HomeScreen(),
+      title: 'Ostad App',
     );
   }
 }
@@ -15,50 +15,55 @@ class HomeScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Home',
-          style: TextStyle(
-            color: Colors.white,
-          ),
+        appBar: AppBar(
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.shopping_cart),
+            ),
+          ],
+
+          title: Text('My Shopping List'),
+          centerTitle: true,
         ),
-        backgroundColor: Colors.blue,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Icon(Icons.account_circle,
-            size: 65,
-            color: Colors.green,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Jhon Doe', style:
-              TextStyle(
-                  fontSize: 29,
-                  color: Colors.green
-              ),),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text('Flutter Batch 4',style: TextStyle(
-                fontSize: 21,
-                color: Colors.blue,
-              ),),
-            ],
-          )
-        ],
-      ),
+        body:Column(
+          children: [
+            ListTile(
+              leading: Icon(Icons.shopping_bag),
+              title: Text('OneUI',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),),
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_bag),
+              title: Text('iOS',
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                ),),
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_bag),
+              title: Text('Octopus OS'),
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_bag),
+              title: Text('MIUI'),
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_bag),
+              title: Text('Oxygen OS'),
+            ),
+
+          ],
+        )
+
+
     );
   }
-}
 
+}
 void main (){
   runApp(MyApp());
+
 }
